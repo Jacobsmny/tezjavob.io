@@ -5,21 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tezkor Viktorina</title>
     <link rel="stylesheet" href="styles.css">
-
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-FWX855Y12S');
-    </script>
-    <!-- Конец Google Analytics -->
 </head>
 <body>
     <div class="main-screen">
-        <h1>Tezjavob</h1>
+        <h1>O'yin</h1>
         <button class="menu-btn" onclick="startGame()">Boshlash</button>
         <button class="menu-btn" onclick="showPrize()">Yutuq</button>
         <button class="menu-btn" onclick="showAds()">Reklama</button>
@@ -51,10 +40,9 @@
     <!-- Контейнер для падающих долларов -->
     <div id="falling-dollars"></div>
 
-    <!-- Аудио файлы -->
-    <audio id="correct-sound" src="audio/togri.mp3"></audio>
-    <audio id="wrong-sound" src="audio/wrong.mp3"></audio>
-    <audio id="background-music" src="audio/roa-music-walk-around(chosic.com).mp3" loop></audio>
+    <audio id="correct-sound" src="sounds/correct.mp3"></audio>
+    <audio id="wrong-sound" src="sounds/wrong.mp3"></audio>
+    <audio id="background-music" src="sounds/background.mp3" loop></audio>
 
     <script src="script.js"></script>
 </body>
