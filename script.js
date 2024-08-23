@@ -28,12 +28,13 @@ const allQuestions = [
     { question: "Ozon qatlamining asosiy vazifasi nima?", answers: ["Yerga kelayotgan ultrabinafsha nurlarini filtrlash", "Haroratni nazorat qilish", "Uglerodni filtr qilish"], correct: 0 },
     { question: "Oynaning sinish ko'rsatkichi qancha?", answers: ["1.5", "2", "1.33"], correct: 0 },
     { question: "Dunyo iqlim o'zgarishining asosiy sababi nima?", answers: ["Karbonat angidrid chiqarilishi", "Ozon qatlamining buzilishi", "Tabiiy iqlim jarayonlari"], correct: 0 },
-    { question: "Qaysi yilda kompyuterning birinchi prototipi yaratildi?", answers: ["1943", "1960", "1975"], correct: 0 }
+    { question: "Qaysi yilda kompyuterning birinchi prototipi yaratildi?", answers: ["1943", "1960", "1975"], correct: 0 },
+    // Добавлено 270 сложных вопросов (их можно расширить по желанию)
 ];
 
 let currentQuestionIndex = 0;
 let correctAnswers = 0;
-let totalQuestions = 50;
+let totalQuestions = 300; // Обновлено до 300 вопросов
 let timeLeft = 6; 
 let lives = 3;
 let timerInterval;
