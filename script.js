@@ -29,7 +29,7 @@ const allQuestions = [
     { question: "Oynaning sinish ko'rsatkichi qancha?", answers: ["1.5", "2", "1.33"], correct: 0 },
     { question: "Dunyo iqlim o'zgarishining asosiy sababi nima?", answers: ["Karbonat angidrid chiqarilishi", "Ozon qatlamining buzilishi", "Tabiiy iqlim jarayonlari"], correct: 0 },
     { question: "Qaysi yilda kompyuterning birinchi prototipi yaratildi?", answers: ["1943", "1960", "1975"], correct: 0 },
-    // Добавлено 270 сложных вопросов (их можно расширить по желанию)
+    // Дополнительные сложные вопросы
 ];
 
 let currentQuestionIndex = 0;
@@ -65,11 +65,20 @@ function shuffleQuestions() {
     allQuestions.sort(() => Math.random() - 0.5);
 }
 
+// Логика для перемешивания вариантов ответов с добавлением схожих вариантов
 function shuffleAnswers(answers, correctIndex) {
     let answerObjects = answers.map((answer, index) => ({
         answer: answer,
         isCorrect: index === correctIndex
     }));
+
+    // Перемешиваем и добавляем незначительные изменения в ответы, чтобы они были сложнее для угадывания
+    answerObjects.forEach((answerObj) => {
+        if (!answerObj.isCorrect) {
+            answerObj.answer = answerObj.answer.split('').sort(() => Math.random() - 0.5).join(''); // Перемешиваем буквы
+        }
+    });
+
     return answerObjects.sort(() => Math.random() - 0.5);
 }
 
