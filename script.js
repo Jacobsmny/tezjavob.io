@@ -14,6 +14,9 @@ let timerInterval;
 let shuffledAnswers = [];
 let answeredQuestions = [];
 
+const maxDollars = 20; 
+let currentDollars = 0;
+
 function startGame() {
     document.querySelector(".main-screen").style.display = "none";
     document.getElementById("game-container").style.display = "block";
@@ -23,6 +26,7 @@ function startGame() {
     shuffleQuestions();
     loadQuestion();
     startTimer();
+    startFallingDollars(); // Запуск анимации падения долларов
 }
 
 function shuffleQuestions() {
@@ -101,6 +105,7 @@ function gameOver() {
     document.getElementById("total-questions").textContent = "Jami savollar: " + totalQuestions;
     document.getElementById("correct-answers").textContent = "To'g'ri javoblar: " + correctAnswers;
     document.getElementById("accuracy").textContent = "Aniqlik: " + accuracy + "%";
+    stopFallingDollars(); // Остановка падения долларов
 }
 
 function restartGame() {
@@ -114,4 +119,30 @@ function playCorrectSound() {
 
 function playWrongSound() {
     document.getElementById("wrong-sound").play();
+}
+
+function createFallingDollars() {
+    if (currentDollars < maxDollars) {
+        const dollar = document.createElement("img");
+        dollar.src = "img/pngwing.com.png";
+        dollar.classList.add("dollar");
+        dollar.style.left = Math.random() * window.innerWidth + "px";
+        dollar.style.animationDuration = Math.random() * 3 + 2 + "s";
+        document.getElementById("falling-dollars").appendChild(dollar);
+        currentDollars++;
+
+        dollar.addEventListener("animationend", () => {
+            dollar.remove();
+            currentDollars--;
+        });
+    }
+}
+
+function startFallingDollars() {
+    setInterval(createFallingDollars, 500);
+}
+
+function stopFallingDollars() {
+    const dollarElements = document.getElementById("falling-dollars").querySelectorAll(".dollar");
+    dollarElements.forEach(dollar => dollar.remove());
 }
